@@ -1,0 +1,16 @@
+C:\Users\void_\Desktop\c sharp\HomeWork\HomeWork3\bin\Debug\net5.0\HomeWork3.exe
+C:\Users\void_\Desktop\c sharp\HomeWork\HomeWork3\bin\Debug\net5.0\HomeWork3.deps.json
+C:\Users\void_\Desktop\c sharp\HomeWork\HomeWork3\bin\Debug\net5.0\HomeWork3.runtimeconfig.json
+C:\Users\void_\Desktop\c sharp\HomeWork\HomeWork3\bin\Debug\net5.0\HomeWork3.runtimeconfig.dev.json
+C:\Users\void_\Desktop\c sharp\HomeWork\HomeWork3\bin\Debug\net5.0\HomeWork3.dll
+C:\Users\void_\Desktop\c sharp\HomeWork\HomeWork3\bin\Debug\net5.0\HomeWork3.pdb
+C:\Users\void_\Desktop\c sharp\HomeWork\HomeWork3\obj\Debug\net5.0\HomeWork3.csproj.AssemblyReference.cache
+C:\Users\void_\Desktop\c sharp\HomeWork\HomeWork3\obj\Debug\net5.0\HomeWork3.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\void_\Desktop\c sharp\HomeWork\HomeWork3\obj\Debug\net5.0\HomeWork3.AssemblyInfoInputs.cache
+C:\Users\void_\Desktop\c sharp\HomeWork\HomeWork3\obj\Debug\net5.0\HomeWork3.AssemblyInfo.cs
+C:\Users\void_\Desktop\c sharp\HomeWork\HomeWork3\obj\Debug\net5.0\HomeWork3.csproj.CoreCompileInputs.cache
+C:\Users\void_\Desktop\c sharp\HomeWork\HomeWork3\obj\Debug\net5.0\HomeWork3.dll
+C:\Users\void_\Desktop\c sharp\HomeWork\HomeWork3\obj\Debug\net5.0\refint\HomeWork3.dll
+C:\Users\void_\Desktop\c sharp\HomeWork\HomeWork3\obj\Debug\net5.0\HomeWork3.pdb
+C:\Users\void_\Desktop\c sharp\HomeWork\HomeWork3\obj\Debug\net5.0\HomeWork3.genruntimeconfig.cache
+C:\Users\void_\Desktop\c sharp\HomeWork\HomeWork3\obj\Debug\net5.0\ref\HomeWork3.dll
