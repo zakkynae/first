@@ -14,14 +14,24 @@ namespace HomeWork
         //        firstTriangle.Add(elementFirstTriangle += "*");
         //    return firstTriangle;
         //}
-        public static void GetFirstTriangle(int row)
+        //public static void GetFirstTriangle(int row)
+        //{
+        //    for(int i = 1; i <= row; i++)
+        //    {
+        //        var stringTriangle = new String ('*', i);
+        //        Console.WriteLine(stringTriangle);
+        //    }
+        //}
+        public static string GetFirstTriangle(int row)
         {
-            for(int i = 1; i <= row; i++)
+            var triangle = new StringBuilder("");
+            for(int i = 1; i < row + 1; i++)
             {
-                var stringTriangle = new String ('*', i);
-                Console.WriteLine(stringTriangle);
+                var stringTriangle = new String('*', i);
+                triangle.Append(stringTriangle);
+                triangle.Append('\n');
             }
-
+            return triangle.ToString();
         }
         public static List<string> GetSecondTriangle(int row)
         {
@@ -45,7 +55,7 @@ namespace HomeWork
         public static void PrintTriangle(string triangle)
         {
             foreach (var element in triangle)
-                Console.WriteLine(element);
+                Console.Write(element);
         }
 
         static void Main(string[] args)
@@ -57,8 +67,8 @@ namespace HomeWork
             {
                 Console.WriteLine("Введено неверное кол-во строк треугольника. Попробуйте еще раз.");
             }
-            //PrintTriangle(GetFirstTriangle(row));
-            GetFirstTriangle(row);
+            PrintTriangle(GetFirstTriangle(row));
+            //GetFirstTriangle(row);
             Console.WriteLine();
             PrintTriangle(GetSecondTriangle(row));
         }
