@@ -6,29 +6,12 @@ namespace HomeWork
 {
     internal class Program
     {
-        //public static List<string> GetFirstTriangle(int row)
-        //{
-        //    var elementFirstTriangle = "";
-        //    var firstTriangle = new List<string>() { elementFirstTriangle };
-        //    for (var i = 0; i < row; i++)
-        //        firstTriangle.Add(elementFirstTriangle += "*");
-        //    return firstTriangle;
-        //}
-        //public static void GetFirstTriangle(int row)
-        //{
-        //    for(int i = 1; i <= row; i++)
-        //    {
-        //        var stringTriangle = new String ('*', i);
-        //        Console.WriteLine(stringTriangle);
-        //    }
-        //}
         public static string GetFirstTriangle(int row)
         {
             var triangle = new StringBuilder("");
             for(int i = 1; i < row + 1; i++)
             {
-                var stringTriangle = new String('*', i);
-                triangle.Append(stringTriangle);
+                triangle.Append(new String('*', i));
                 triangle.Append('\n');
             }
             return triangle.ToString();
