@@ -1,24 +1,8 @@
 ﻿using ConsoleTables;
 class Program
 {
-    private static void GetArraysDataAllDirectories(DirectoryInfo directory, out long[] arrayLengthFiles, out DateTime[] arrayDateCreationFile, out string[] arrayExtensionFiles)
+    private static void FillingAndSortingArrays(FileInfo[] listFiles, out long[] arrayLengthFiles, out DateTime[] arrayDateCreationFile, out string[] arrayExtensionFiles)
     {
-        var listFiles = directory.GetFiles("*.*", SearchOption.AllDirectories);
-        arrayLengthFiles = new long[listFiles.Length];
-        arrayDateCreationFile = new DateTime[listFiles.Length];
-        arrayExtensionFiles = new string[listFiles.Length];
-        for (int i = 0; i < listFiles.Length; i++)
-        {
-            arrayLengthFiles[i] = listFiles[i].Length;
-            arrayDateCreationFile[i] = listFiles[i].CreationTime;
-            arrayExtensionFiles[i] = listFiles[i].Extension;
-        }
-        Array.Sort(arrayLengthFiles);
-        Array.Sort(arrayDateCreationFile);
-    }
-    private static void GetArraysData(DirectoryInfo directory, out long[] arrayLengthFiles, out DateTime[] arrayDateCreationFile, out string[] arrayExtensionFiles)
-    {
-        var listFiles = directory.GetFiles();
         arrayLengthFiles = new long[listFiles.Length];
         arrayDateCreationFile = new DateTime[listFiles.Length];
         arrayExtensionFiles = new string[listFiles.Length];
@@ -56,18 +40,40 @@ class Program
         Console.Write("Введите директорию: ");
         var path = String.Format($@"{Console.ReadLine()}");
         var directory = new DirectoryInfo(path);
+
         string[] arrayExtensionFilesAllDirectories;
         long[] arrayLengthFilesAllDirectories;
         DateTime[] arrayDateCreationFileAllDirectories;
-        GetArraysDataAllDirectories(directory, out arrayLengthFilesAllDirectories, out arrayDateCreationFileAllDirectories, out arrayExtensionFilesAllDirectories);
+        var listFilesAllDirectories = directory.GetFiles("*.*", SearchOption.AllDirectories);
+        FillingAndSortingArrays(listFilesAllDirectories, out arrayLengthFilesAllDirectories, out arrayDateCreationFileAllDirectories, out arrayExtensionFilesAllDirectories);
         var firstTable = GetTable(GetSortedArrayExtension(arrayExtensionFilesAllDirectories), arrayLengthFilesAllDirectories, arrayDateCreationFileAllDirectories);
-        Console.WriteLine("");
+        Console.WriteLine("Файлы в указанной директории и в подпапках");
         firstTable.Write();
-        string[] arrayExtensionFiles;
-        long[] arrayLengthFiles;
-        DateTime[] arrayDateCreationFile;
-        GetArraysData(directory, out arrayLengthFiles, out arrayDateCreationFile, out arrayExtensionFiles);
-        var secondTable = GetTable(GetSortedArrayExtension(arrayExtensionFiles), arrayLengthFiles, arrayDateCreationFile);
+
+        string[] arrayExtensionFilesDirectory;
+        long[] arrayLengthFilesDirectory;
+        DateTime[] arrayDateCreationFileDirectory;
+        var listFiles = directory.GetFiles();
+        FillingAndSortingArrays(listFiles, out arrayLengthFilesDirectory, out arrayDateCreationFileDirectory, out arrayExtensionFilesDirectory);
+        Console.WriteLine("Файлы в указанной директории и в подпапках");
+        var secondTable = GetTable(GetSortedArrayExtension(arrayExtensionFilesDirectory), arrayLengthFilesDirectory, arrayDateCreationFileDirectory);
         secondTable.Write();
+
+        string[] arrayExtensionFilesDisk;
+        long[] arrayLengthFilesDisk;
+        DateTime[] arrayDateCreationFileDisk;
+        try
+        { 
+            var directoryDisk = new DirectoryInfo(path.Substring(0, 3));
+            var listFilesDisk = directoryDisk.GetFiles("*", SearchOption.AllDirectories);
+            FillingAndSortingArrays(listFilesDisk, out arrayLengthFilesDisk, out arrayDateCreationFileDisk, out arrayExtensionFilesDisk);
+            var thirdTable = GetTable(GetSortedArrayExtension(arrayExtensionFilesDisk), arrayLengthFilesDisk, arrayDateCreationFileDisk);
+            thirdTable.Write();
+        }
+        catch (UnauthorizedAccessException ex)
+        {
+            Console.WriteLine(ex.Message);
+        }
+        Console.ReadKey();
     }
 }
